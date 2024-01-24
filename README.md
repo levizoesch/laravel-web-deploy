@@ -15,8 +15,11 @@ Go to your `Github repository`, `Settings`, `Deploy Keys`
 Go to your `Github repository`, `Settings`, `Secrets & Variables`, Select `Actions` drop down menu. 
 
 SSH_HOST = The IP address
+
 SSH_KEY = The Private SSH Key
+
 SSH_PASS = The SSH Passphrase
+
 SSH_USER = The SSH Username
 
 # Commit the laravel-web-deploy.yml file to your repository.
