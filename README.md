@@ -1,6 +1,46 @@
 # laravel-web-deploy
 A simple github action script to deploy a laravel application to a FTP host using SSH Key/passphrase
 
+This is a 2 step process to get fully implemented.
+
+This will initialize the files onto the domain from the repository.
+
+```
+name: FTP Upload
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  web-deploy:
+
+    name: 🎉 Deploy to Production
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v3
+
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server-dir: public_html/
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftp
+          port: 21
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/docker*/**
+
+```
+
+You will then need to recommit the default file that is in this repository named `laravel-web-deploy.yml`
+
 # Create a SSH Key
 Within your environment, create a SSH Key with a passphrase
 
