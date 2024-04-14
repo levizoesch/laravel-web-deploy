@@ -38,8 +38,7 @@ jobs:
             **/docker*/**
 
 ```
-
-You will then need to recommit the default file that is in this repository named `laravel-web-deploy.yml`
+Once the repository has been commited to your domain, you will need to run your `composer update` command, and any other `artisan` commands neccesary to get your environment up. Once things are up, You will then need to recommit the default file that is in this repository named `laravel-web-deploy.yml`
 
 # Create a SSH Key
 Within your environment, create a SSH Key with a passphrase
